@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="description"
+        content="Neon Dodge - a fast-paced HTML5 arcade game."
+    >
+
+    <title>Neon Dodge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-shell">
+
+        <!-- TOP BAR -->
+        <header class="hud">
+
+            <div class="hud-item">
+                <span class="hud-label">SCORE</span>
+                <strong id="score">0</strong>
+            </div>
+
+            <div class="hud-center">
+                <div class="brand">
+                    NEON<span>DODGE</span>
+                </div>
+            </div>
+
+            <div class="hud-actions">
+
+                <button
+                    id="soundButton"
+                    class="icon-button"
+                    aria-label="Toggle sound"
+                >
+                    🔊
+                </button>
+
+                <button
+                    id="pauseButton"
+                    class="icon-button"
+                    aria-label="Pause game"
+                >
+                    ❚❚
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- GAME -->
+        <section class="game-frame">
+
+            <canvas id="gameCanvas"></canvas>
+
+            <!-- START SCREEN -->
+            <div id="startScreen" class="overlay">
+
+                <div class="overlay-content">
+
+                    <div class="game-logo">
+                        <div class="logo-orb"></div>
+                        <h1>NEON<br>DODGE</h1>
+                    </div>
+
+                    <p class="tagline">
+                        Dodge. Collect. Survive.
+                    </p>
+
+                    <button
+                        id="startButton"
+                        class="primary-button"
+                    >
+                        PLAY NOW
+                    </button>
+
+                    <div class="instructions">
+
+                        <div class="instruction">
+                            <span>← →</span>
+                            <small>MOVE</small>
+                        </div>
+
+                        <div class="instruction">
+                            <span>●</span>
+                            <small>COLLECT</small>
+                        </div>
+
+                        <div class="instruction">
+                            <span>◆</span>
+                            <small>POWER</small>
+                        </div>
+
+                    </div>
+
+                    <p class="mobile-hint">
+                        Drag anywhere to move
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAUSE SCREEN -->
+            <div
+                id="pauseScreen"
+                class="overlay hidden"
+            >
+
+                <div class="overlay-content">
+
+                    <p class="eyebrow">GAME PAUSED</p>
+
+                    <h2>Take a breath.</h2>
+
+                    <button
+                        id="resumeButton"
+                        class="primary-button"
+                    >
+                        RESUME
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- GAME OVER -->
+            <div
+                id="gameOverScreen"
+                class="overlay hidden"
+            >
+
+                <div class="overlay-content">
+
+                    <p class="eyebrow">RUN COMPLETE</p>
+
+                    <h2 class="game-over-title">
+                        GAME OVER
+                    </h2>
+
+                    <div class="result">
+
+                        <div>
+                            <span>SCORE</span>
+                            <strong id="finalScore">0</strong>
+                        </div>
+
+                        <div>
+                            <span>BEST</span>
+                            <strong id="finalBest">0</strong>
+                        </div>
+
+                    </div>
+
+                    <p id="newBest" class="new-best hidden">
+                        NEW BEST!
+                    </p>
+
+                    <button
+                        id="restartButton"
+                        class="primary-button"
+                    >
+                        PLAY AGAIN
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAUSE BUTTON AREA -->
+            <div
+                id="pauseHint"
+                class="pause-hint hidden"
+            >
+                PAUSED
+            </div>
+
+        </section>
+
+
+        <!-- MOBILE CONTROLS -->
+        <div class="mobile-controls">
+
+            <button
+                id="leftButton"
+                class="control-button"
+                aria-label="Move left"
+            >
+                ‹
+            </button>
+
+            <div class="life-display">
+                <span id="life1">♥</span>
+                <span id="life2">♥</span>
+                <span id="life3">♥</span>
+            </div>
+
+            <button
+                id="rightButton"
+                class="control-button"
+                aria-label="Move right"
+            >
+                ›
+            </button>
+
+        </div>
+
+
+        <footer>
+            NEON DODGE <span>•</span> HTML5 ARCADE
+        </footer>
+
+    </main>
+
+    <script src="game.js"></script>
+
+</body>
+</html>
